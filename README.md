@@ -9,3 +9,12 @@ Enter CICDash:  A dashboard microservice jar you can run on localhost or server 
 Note: this project is in early stages. Feedback, feature requests and pull requests are welcome.
 
 Current build systems supported: Jenkins.
+
+Installation
+===============
+
+Todo
+
+Usage
+===========
+Todo
