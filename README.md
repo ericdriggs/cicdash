@@ -17,4 +17,9 @@ Todo
 
 Usage
 ===========
-Todo
+todo
+
+Example
+============
+
+TODO
