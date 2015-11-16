@@ -27,6 +27,7 @@ Example
 ============
 
 Payload:
+```
 [
     {
         "jenkinsServerUrl" : "https://builds.apache.org"
@@ -42,8 +43,7 @@ Payload:
     }
 
 ]
+```
 
 Response:
-![GitHub Logo](cicdash-example.png)
-Format: ![example]()
-
+![CICDash example](cicdash-example.png)
