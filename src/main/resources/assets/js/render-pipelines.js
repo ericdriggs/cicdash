@@ -9,6 +9,7 @@ function pipelineToTable(pipeline) {
     pipelineHtml += '</fieldset>';
 
     if (pipeline.links) {
+        pipelineHtml += '<div id="pipeline_links_wrapper" class="pipeline_links_wrapper" style="display:block">';
         pipelineHtml += '<fieldset id="pipeline_links" class="pipeline_links">';
         pipelineHtml += '<legend>links</legend>';
         var linkKeys = Object.keys(pipeline.links);
@@ -22,6 +23,8 @@ function pipelineToTable(pipeline) {
 
         }
         pipelineHtml += '</fieldset>';
+        pipelineHtml += '</div>';
+
     }
     pipelineHtml += '</div><!--end query_wrapper-->';
 

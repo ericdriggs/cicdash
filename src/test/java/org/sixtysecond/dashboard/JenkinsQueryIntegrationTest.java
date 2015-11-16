@@ -10,7 +10,6 @@ import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.junit.Rule;
-import org.junit.Test;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
@@ -27,7 +26,7 @@ public class JenkinsQueryIntegrationTest {
             new DropwizardAppRule<CICDashConfiguration>(CICDashApplication.class,
                     ResourceHelpers.resourceFilePath("cicdash.yml"));
 
-    @Test
+//    @Test
     public void runServerTest() throws JsonProcessingException {
         Client client = new JerseyClientBuilder().build();
 

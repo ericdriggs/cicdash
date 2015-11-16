@@ -6,7 +6,6 @@ import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQuery;
 import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQueryCallable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.junit.Test;
 
 import javax.ws.rs.core.Response;
 import java.util.*;
@@ -68,7 +67,7 @@ public class JenkinsJobQueryTest {
 //        WireMock.shutdownServer();
 //    }
 
-    @Test
+//    @Test
     public void jenkinsJobQueryGetTest() throws ExecutionException, InterruptedException, JsonProcessingException {
         //        String jenkinsServerUrl = "https://builds.apache.org";
         //        String jobNamePattern = "Ambari.*?";
@@ -81,7 +80,7 @@ public class JenkinsJobQueryTest {
         System.out.println("response=" + response);
     }
 
-    @Test
+//    @Test
     public void jenkinsJobQueryGetMultipleJobsTest() throws ExecutionException, InterruptedException, JsonProcessingException {
         //        String jenkinsServerUrl = "https://builds.apache.org";
         //        String jobNamePattern = "Ambari.*?";
@@ -94,7 +93,7 @@ public class JenkinsJobQueryTest {
     }
 
 
-    @Test
+//    @Test
     public void jenkinsJobQueryPostMultiplePatternsTest() {
         List<JenkinsJobQuery> jenkinsJobQueryList = new ArrayList<JenkinsJobQuery>();
         {
