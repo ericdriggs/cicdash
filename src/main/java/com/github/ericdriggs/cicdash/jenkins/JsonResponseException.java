@@ -1,4 +1,4 @@
-package com.github.sixtysecond.cicdash.jenkins;
+package com.github.ericdriggs.cicdash.jenkins;
 
 /**
  * Created by edriggs on 11/8/15.

@@ -1,13 +1,13 @@
 package org.sixtysecond.dashboard;
 
-import com.github.sixtysecond.cicdash.endpoint.JenkinsJobQueryResource;
+import com.github.ericdriggs.cicdash.endpoint.JenkinsJobQueryResource;
 import com.github.tomakehurst.wiremock.WireMockServer;
 import com.github.tomakehurst.wiremock.client.WireMock;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.*;
-import com.github.sixtysecond.cicdash.jenkins.JenkinsJobQuery;
-import com.github.sixtysecond.cicdash.jenkins.JenkinsJobQueryCallable;
+import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQuery;
+import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQueryCallable;
 
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;

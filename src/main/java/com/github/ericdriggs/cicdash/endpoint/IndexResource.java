@@ -1,4 +1,4 @@
-package com.github.sixtysecond.cicdash.endpoint;
+package com.github.ericdriggs.cicdash.endpoint;
 
 import com.codahale.metrics.annotation.Timed;
 

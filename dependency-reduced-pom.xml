@@ -28,7 +28,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>com.github.sixtysecond.cicdash.CICDashApplication</mainClass>
+                  <mainClass>com.github.ericdriggs.cicdash.CICDashApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>

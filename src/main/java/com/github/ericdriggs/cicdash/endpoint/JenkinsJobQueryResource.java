@@ -1,11 +1,11 @@
-package com.github.sixtysecond.cicdash.endpoint;
+package com.github.ericdriggs.cicdash.endpoint;
 
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import com.github.sixtysecond.cicdash.jenkins.JenkinsJobQuery;
-import com.github.sixtysecond.cicdash.jenkins.JenkinsJobQueryCallable;
+import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQuery;
+import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQueryCallable;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

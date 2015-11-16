@@ -1,4 +1,4 @@
-package com.github.sixtysecond.cicdash.jenkins;
+package com.github.ericdriggs.cicdash.jenkins;
 
 import org.json.JSONObject;
 

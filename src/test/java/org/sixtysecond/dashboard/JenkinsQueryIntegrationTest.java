@@ -3,9 +3,9 @@ package org.sixtysecond.dashboard;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.sixtysecond.cicdash.CICDashApplication;
-import com.github.sixtysecond.cicdash.CICDashConfiguration;
-import com.github.sixtysecond.cicdash.jenkins.JenkinsJobQuery;
+import com.github.ericdriggs.cicdash.CICDashApplication;
+import com.github.ericdriggs.cicdash.CICDashConfiguration;
+import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQuery;
 import io.dropwizard.testing.ResourceHelpers;
 import io.dropwizard.testing.junit.DropwizardAppRule;
 import org.glassfish.jersey.client.JerseyClientBuilder;

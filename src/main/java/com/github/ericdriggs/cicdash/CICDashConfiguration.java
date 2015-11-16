@@ -1,4 +1,4 @@
-package com.github.sixtysecond.cicdash;
+package com.github.ericdriggs.cicdash;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

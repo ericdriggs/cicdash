@@ -1,7 +1,7 @@
-package com.github.sixtysecond.cicdash;
+package com.github.ericdriggs.cicdash;
 
-import com.github.sixtysecond.cicdash.endpoint.IndexResource;
-import com.github.sixtysecond.cicdash.endpoint.JenkinsJobQueryResource;
+import com.github.ericdriggs.cicdash.endpoint.IndexResource;
+import com.github.ericdriggs.cicdash.endpoint.JenkinsJobQueryResource;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
