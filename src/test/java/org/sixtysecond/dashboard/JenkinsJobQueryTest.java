@@ -1,5 +1,6 @@
 package org.sixtysecond.dashboard;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.github.ericdriggs.cicdash.endpoint.JenkinsJobQueryResource;
 import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQuery;
 import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQueryCallable;
@@ -8,8 +9,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -69,43 +69,46 @@ public class JenkinsJobQueryTest {
 //    }
 
     @Test
-    public void jenkinsJobQueryGetTest() throws ExecutionException, InterruptedException {
+    public void jenkinsJobQueryGetTest() throws ExecutionException, InterruptedException, JsonProcessingException {
         //        String jenkinsServerUrl = "https://builds.apache.org";
         //        String jobNamePattern = "Ambari.*?";
 //        System.out.println(wireMockServer.listAllStubMappings());
 
         String jenkinsServerUrl = "http://builds.apache.org";
         String jobNamePattern = "Accumulo-1.7";
-        JenkinsJobQuery jenkinsJobQuery = new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern);
+        JenkinsJobQuery jenkinsJobQuery = new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, null);
         JSONObject response = new JenkinsJobQueryCallable(jenkinsJobQuery).call();
         System.out.println("response=" + response);
     }
 
     @Test
-    public void jenkinsJobQueryGetMultipleJobsTest() throws ExecutionException, InterruptedException {
+    public void jenkinsJobQueryGetMultipleJobsTest() throws ExecutionException, InterruptedException, JsonProcessingException {
         //        String jenkinsServerUrl = "https://builds.apache.org";
         //        String jobNamePattern = "Ambari.*?";
 
         String jenkinsServerUrl = "https://builds.apache.org";
         String jobNamePattern = "ActiveMQ.*?";
-        JenkinsJobQuery jenkinsJobQuery = new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern);
+        JenkinsJobQuery jenkinsJobQuery = new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, null);
         JSONObject response = new JenkinsJobQueryCallable(jenkinsJobQuery).call();
         System.out.println("response=" + response);
     }
 
 
-    //@Test //disabled for faster debug build
+    @Test
     public void jenkinsJobQueryPostMultiplePatternsTest() {
         List<JenkinsJobQuery> jenkinsJobQueryList = new ArrayList<JenkinsJobQuery>();
         {
             String jenkinsServerUrl = "https://builds.apache.org";
             String jobNamePattern = "Accumulo-1.6";
-            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern));
+            Map<String,String> links  = new HashMap<String,String>();
+            links.put("foo", "http://foo.com");
+            links.put("bar", "http://bar.com");
+            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, links));
         }
         {
             String jenkinsServerUrl = "https://builds.apache.org";
             String jobNamePattern = "Accumulo-1.7";
-            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern));
+            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, null));
         }
 
         Response response =
@@ -126,7 +129,7 @@ public class JenkinsJobQueryTest {
         {
             String jenkinsServerUrl = "https://builds.apache.org";
             String jobNamePattern = "ActiveMQ.*?";
-            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern));
+            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, null));
         }
 
         Response response =

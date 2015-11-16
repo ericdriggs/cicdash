@@ -1,5 +1,6 @@
 package com.github.ericdriggs.cicdash.jenkins;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.jayway.restassured.response.Response;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -20,12 +21,11 @@ public class JenkinsJobQueryCallable implements Callable<JSONObject> {
 
     private final JenkinsJobQuery jenkinsJobQuery;
 
-
-    public JenkinsJobQueryCallable( JenkinsJobQuery jenkinsJobQuery) {
+    public JenkinsJobQueryCallable(JenkinsJobQuery jenkinsJobQuery) {
         this.jenkinsJobQuery = jenkinsJobQuery;
     }
 
-    public JSONObject call() throws ExecutionException, InterruptedException {
+    public JSONObject call() throws ExecutionException, InterruptedException, JsonProcessingException {
 
         Map<String, JSONObject> jobMap = getJobsForUrl(jenkinsJobQuery.getJenkinsServerUrl());
         Map<String, JSONObject> matchingJobs = filterJsonObjectMap(jobMap, jenkinsJobQuery.getJobNamePattern());
@@ -35,7 +35,16 @@ public class JenkinsJobQueryCallable implements Callable<JSONObject> {
         response.put("lastBuilds", lastBuilds);
         response.put("jobs", matchingJobs);
         response.put("jenkinsServerUrl", jenkinsJobQuery.getJenkinsServerUrl());
-        response.put("jobNamePattern",  jenkinsJobQuery.getJobNamePattern());
+        response.put("jobNamePattern", jenkinsJobQuery.getJobNamePattern());
+        if (jenkinsJobQuery.getLinks() != null && !jenkinsJobQuery.getLinks()
+                .isEmpty()) {
+            JSONObject links = new JSONObject();
+            for (Map.Entry<String, String> entry : jenkinsJobQuery.getLinks()
+                    .entrySet()) {
+                links.put(entry.getKey(), entry.getValue());
+            }
+            response.put("links", links);
+        }
         return response;
     }
 
@@ -55,20 +64,21 @@ public class JenkinsJobQueryCallable implements Callable<JSONObject> {
         executorService.awaitTermination(60, TimeUnit.SECONDS);
 
         Map<String, LastBuildResponse> jsonResponseMap = new HashMap<String, LastBuildResponse>();
-        for ( Map.Entry<String, Future<LastBuildResponse>> entry : futureJsonResponseMap.entrySet()) {
-            jsonResponseMap.put(entry.getKey(), entry.getValue().get());
+        for (Map.Entry<String, Future<LastBuildResponse>> entry : futureJsonResponseMap.entrySet()) {
+            jsonResponseMap.put(entry.getKey(), entry.getValue()
+                    .get());
         }
         return jsonResponseMap;
     }
 
 
-
     public Map<String, JSONObject> getJobsForUrl(String jenknisServerUrl) {
         String jobsUrl = jenknisServerUrl + "/api/json?pretty=false";
-                System.out.println("jobsUrl="+jobsUrl);
+        System.out.println("jobsUrl=" + jobsUrl);
         Response response = given().when()
                 .relaxedHTTPSValidation()
-                .redirects().follow(true)
+                .redirects()
+                .follow(true)
                 .get(jobsUrl)
 
                 .andReturn();
@@ -77,7 +87,7 @@ public class JenkinsJobQueryCallable implements Callable<JSONObject> {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("statusCode", response.getStatusCode());
             jsonObject.put("body", response.getBody());
-            Map<String,JSONObject> ret = new HashMap<String,JSONObject>();
+            Map<String, JSONObject> ret = new HashMap<String, JSONObject>();
             ret.put(jobsUrl, jsonObject);
             return ret;
         }

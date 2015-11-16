@@ -44,12 +44,12 @@ public class SerializeTest {
         {
             String jenkinsServerUrl = "https://builds.apache.org";
             String jobNamePattern = "Accumulo-1.6";
-            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern));
+            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, null));
         }
         {
             String jenkinsServerUrl = "https://builds.apache.org";
             String jobNamePattern = "Accumulo-1.7";
-            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern));
+            jenkinsJobQueryList.add(new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern, null));
         }
 
         assertThat(MAPPER.writeValueAsString(jenkinsJobQueryList)

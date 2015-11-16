@@ -5,8 +5,24 @@ function pipelineToTable(pipeline) {
     pipelineHtml += '<fieldset  class="query"><legend>query</legend>';
     pipelineHtml += '<div class="pipeline_property">pattern: ' + pipeline.jobNamePattern.toString() + '</div>';
     var serverUrl = pipeline.jenkinsServerUrl.toString();
-    pipelineHtml += '<div class="pipeline_property">server: <a href="' + serverUrl + '">' + serverUrl + '</a></div>';
+    pipelineHtml += '<div class="pipeline_property">server: <a href="' + serverUrl + '" target="_blank" >' + serverUrl + '</a></div>';
     pipelineHtml += '</fieldset>';
+
+    if (pipeline.links) {
+        pipelineHtml += '<fieldset id="pipeline_links" class="pipeline_links">';
+        pipelineHtml += '<legend>links</legend>';
+        var linkKeys = Object.keys(pipeline.links);
+        for (var idxKey = 0; idxKey < linkKeys.length; idxKey++) {
+            var name = linkKeys[idxKey];
+            var url = pipeline.links[name];
+            pipelineHtml += '<div class="pipeline_link">';
+            pipelineHtml += '<a href="' + url + '" target="_blank">';
+            pipelineHtml += name;
+            pipelineHtml += '</a></div>';
+
+        }
+        pipelineHtml += '</fieldset>';
+    }
     pipelineHtml += '</div><!--end query_wrapper-->';
 
     if (pipeline.jobs) {

@@ -1,1 +1,1 @@
-[{"jenkinsServerUrl":"https://builds.apache.org","jobNamePattern":"Accumulo-1.6"},{"jenkinsServerUrl":"https://builds.apache.org","jobNamePattern":"Accumulo-1.7"}]
+[{"jenkinsServerUrl":"https://builds.apache.org","jobNamePattern":"Accumulo-1.6","links":null},{"jenkinsServerUrl":"https://builds.apache.org","jobNamePattern":"Accumulo-1.7","links":null}]

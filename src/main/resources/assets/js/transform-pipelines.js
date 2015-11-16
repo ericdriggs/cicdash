@@ -43,6 +43,7 @@ function transformResponsesToPipelines(responses) {
 
         pipeline.jenkinsServerUrl = response['jenkinsServerUrl'];
         pipeline.jobNamePattern = response['jobNamePattern'];
+        pipeline.links = response['links'];
 
         var responseJobs = response['jobs'];
 
