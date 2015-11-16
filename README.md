@@ -13,13 +13,37 @@ Current build systems supported: Jenkins.
 Installation
 ===============
 
-Todo
+git clone https://github.com/ericdriggs/cicdash
+./install.sh
+
 
 Usage
 ===========
-todo
+./run.sh
+browse to http://localhost:8080/
+submit json payload
 
 Example
 ============
 
-TODO
+Payload:
+[
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "ActiveMQ.*?"
+    },
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "Ambari.*?"
+    },
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "Accumulo.*?"
+    }
+
+]
+
+Response:
+![GitHub Logo](cicdash-example.png)
+Format: ![example]()
+
