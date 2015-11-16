@@ -19,9 +19,11 @@ git clone https://github.com/ericdriggs/cicdash
 
 Usage
 ===========
+```
 ./run.sh
 browse to http://localhost:8080/
 submit json payload
+```
 
 Example
 ============
