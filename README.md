@@ -14,10 +14,10 @@ Current build systems supported: Jenkins.
 
 Installation
 ===============
-
+```
 git clone https://github.com/ericdriggs/cicdash
 mvn clean install
-
+```
 Usage
 ===========
 ```
