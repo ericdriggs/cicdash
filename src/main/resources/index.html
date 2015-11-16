@@ -1,0 +1,85 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
+
+    <!--<script type="text/javascript" src="transform-pipelines.js"></script>-->
+    <!--<script type="text/javascript" src="render-pipelines.js"></script>-->
+
+</head>
+<div><a href="https://github.com/sixtysecond/jenkins-jobs-dashboard" target="_blank">
+    <img src="assets/img/cicdash.png" style="width:200px; height:50px;">
+</a></div>
+<div>Last Refreshed: <span id="now" class="now"></span></div>
+<div id="dashboard_wrapper" name="dashboard_wrapper" class="dashboard_wrapper"></div>
+
+
+
+<label for="jobQueryTop">Please send a query json</label>
+
+<div id="jobQueryTop"></div>
+<textarea id="jobQuery" name="jobQuery" rows="20" cols="150"></textarea>
+<br>
+<button onclick="postJobQuery()">Query / Refresh</button>
+
+<br/>
+<br/>
+<br/>
+<button onclick="toggleVisible('debug');">Show/Hide Debug</button>
+<div id="debug_wrapper" class="debug_wrapper" style="display:block">
+    <span id="debug" class="debug" style="display:none">
+        <span id="raw_json" class="raw_json" style="display:inline">
+        <div>Json Response:</div>
+        <textarea readonly id="rawJson" name="rawJson" rows="20" cols="120"></textarea>
+        </span>
+        <br/>
+        <span id="transformed_json" class="transformed_json" style="display:inline">
+        <div>Transformed Json:</div>
+        <textarea readonly id="transformedJson" name="transformedJson" rows="20" cols="120"></textarea>
+        </span>
+    </span>
+</div>
+<!--end debug -->
+<br/>
+<button onclick="toggleVisible('samples');">Show/Hide Samples</button>
+<div id="samples_wrapper" class="samples_wrapper" style="display:block">
+    <div id="samples" class="samples" style="display:none">
+        <h2>sample payload #1:</h2>
+<textarea readonly rows="20" cols="80">
+[
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "ActiveMQ.*?"
+    },
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "Ambari.*?"
+    },
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "Accumulo.*?"
+    }
+
+]
+</textarea>
+
+        <h2>sample payload #2:</h2>
+<textarea readonly readonly rows="10" cols="80">
+
+[
+    {
+        "jenkinsServerUrl" : "https://builds.apache.org"
+        ,"jobNamePattern" : "Accumulo.*?"
+    }
+]
+</textarea>
+    </div>
+    <!--end samples-->
+</div>
+<!--end samples wrapper-->
+
+
+<script type="text/javascript" src="assets/js/transform-pipelines.js"></script>
+<script type="text/javascript" src="assets/js/render-pipelines.js"></script>
+<script type="text/javascript" src="assets/js/dashboard.js"></script>
+</body>
+</html>

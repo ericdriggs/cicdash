@@ -1,0 +1,220 @@
+
+body {
+    /*white-space: nowrap*/
+    margin: 0 auto;
+    padding: 0;
+    display: inline-block;
+    font-family: Arial, Helvetica;
+    font-size: .9em;
+    vertical-align: top;
+    background-color: #e0e4ef;
+    font-weight: bold;
+}
+
+a {
+    color: #139;
+    /*text-decoration: none;*/
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+a:hover {
+    color: #06e;
+    text-decoration: underline;
+}
+
+/*fieldset {*/
+/*/!*width: 10px;*!/*/
+/**/
+/*margin: 0px auto;*/
+/*padding: 0px;*/
+/*}*/
+
+fieldset {
+    display: inline-block;
+    /*padding:0 5px 5px;*/
+    border: 1px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #999;
+
+    margin-top: 0px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-bottom: 2px;
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 2px;
+    /*padding-top:10px;*/
+}
+
+fieldset .job {
+    /*background-color: #e0e4ef;*/
+}
+
+.last_build_properties {
+
+}
+
+legend {
+    /*padding:2px 4px;*/
+    background: white;
+    border: 1px solid black;
+    margin: 0 auto;
+    /*padding: 0;*/
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px 1px #999;
+    /*border-radius:5px;*/
+}
+
+.dashboard_wrapper {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #999;
+    vertical-align: top;
+    background-color: #444;
+    /*width: 10px;*/
+}
+
+.dashboard {
+
+}
+
+.pipeline {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    background-color: #e0e4ef;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #999;
+    display: inline-block;
+    /*width: 400px;*/
+    vertical-align: top;
+}
+
+fieldset .job_section {
+    /*background-color: white;*/
+}
+
+.pipeline_property {
+    /*width: 10px;*/
+}
+
+.jobs_wrapper {
+    display: block;
+    /*background-color: #e0e4ef;*/
+}
+
+.jobs {
+    /*padding: 5px;*/
+    display: inline-block;
+    background-color: #f0f4ff;
+}
+
+.job_links {
+    /*padding: 5px;*/
+    /*background-color: #ddd;*/
+}
+
+.query_wrapper {
+    display: block;
+}
+
+.query {
+    display: inline-block;
+    /*color: #eee;*/
+    /*background-color: #e0e4ef;*/
+    margin-bottom: 3px;
+}
+
+fieldset.query {
+    background-color: #f0f4ff;
+}
+
+fieldset .query {
+    display: inline-block;
+    background-color: #ddd;
+    box-shadow: 1px 1px 2px 2px #999;
+    padding-bottom: 5px;
+}
+
+.job_wrapper{
+    margin:2px;
+}
+
+.job {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 2px #999;
+    margin: 2px;
+    margin-bottom: 12px;
+    margin-top: 5px;
+    margin-right: 8px;
+}
+
+.job_property {
+    /*background-color: white;*/
+    /*border: .5px solid black;*/
+
+    /*margin-left: 2px;*/
+    /*margin-right: 2px;*/
+}
+
+.job_section {
+    /*background-color: #e0e4ef;*/
+    display: inline-block;
+}
+
+.job_section fieldset {
+    /*background-color: #e0e4ef;*/
+}
+
+.jobs fieldset {
+}
+
+.property_bubble {
+    /*background-color:#ddd;*/
+    /*background-color: #d0d4df;*/
+}
+
+.status_success {
+    color: green;
+    /*background-color:white;*/
+    /*background-color: #bcd;*/
+}
+
+.status_failure {
+    color: #05a;
+    background-color: #c88;
+    /*color: red;*/
+    /*background-color: #443;*/
+}
+
+.status_skip {
+    color: #640;
+    background-color: #ffb;
+}
+
+.status_unknown {
+    color: #006;
+    background-color: #fd4;
+}
+
+.status_success {
+    color: green;
+    /*background-color: white;*/
+}
+
+.parameters {
+    font-size: .7em;
+}
+
+.time_unit {
+    font-size: .7em;
+    font-weight: normal;
+}
+
+button {
+
+}
