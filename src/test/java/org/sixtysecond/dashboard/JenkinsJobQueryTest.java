@@ -1,23 +1,17 @@
 package org.sixtysecond.dashboard;
 
 import com.github.ericdriggs.cicdash.endpoint.JenkinsJobQueryResource;
-import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.client.WireMock;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.junit.*;
 import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQuery;
 import com.github.ericdriggs.cicdash.jenkins.JenkinsJobQueryCallable;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.junit.Test;
 
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import static io.dropwizard.testing.FixtureHelpers.fixture;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.core.Is.is;
@@ -29,55 +23,58 @@ import static org.hamcrest.core.Is.is;
  * Created by edriggs on 11/2/15.
  */
 public class JenkinsJobQueryTest {
+    final static int wiremockServerPort = 8080;
 
-    protected static WireMockServer wireMockServer = new WireMockServer();
+//    protected static WireMockServer wireMockServer = new WireMockServer(wiremockServerPort);
 
-    public static void stubJobFixtureGet(String fixtureName) {
-        stubFor(WireMock.get(urlEqualTo("job/" + fixtureName + "/api/json.*?"))
-                .willReturn(aResponse().withBody(fixture("fixtures/" + fixtureName + ".json"))));
-    }
+//    public static void stubJobFixtureGet(String fixtureName) {
+//
+//        stubFor(WireMock.get(urlEqualTo("job/" + fixtureName + "/api/json.*?"))
+//                .willReturn(aResponse().withBody(fixture("fixtures/" + fixtureName + ".json"))));
+//    }
 
-    @BeforeClass
-    public static void beforeClass() {
-        wireMockServer.start();
+//    @BeforeClass
+//    public static void beforeClass() {
+//
+//        wireMockServer.start();
+//        configureFor(wireMockServer.port());
+//
+//        stubFor(WireMock.get(urlEqualTo("/api/json.*?"))
+//                .willReturn(aResponse().withBody(fixture("fixtures/jobs.json"))));
+//
+//        stubJobFixtureGet(FixtureJson.ACCUMULO_1_6);
+//        stubJobFixtureGet(FixtureJson.ACCUMULO_1_7);
+//        stubJobFixtureGet(FixtureJson.ACCUMULO_MASTER);
+//        stubJobFixtureGet(FixtureJson.ACCUMULO_PULL_REQUESTS);
+//
+//
+//
+//    }
 
 
-        stubFor(WireMock.get(urlEqualTo("/api/json.*?"))
-                .willReturn(aResponse().withBody(fixture("fixtures/jobs.json"))));
+//    @AfterClass
+//    public static void stopServer() {
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        wireMockServer.stop();
+//    }
 
-        stubJobFixtureGet(FixtureJson.ACCUMULO_1_6);
-        stubJobFixtureGet(FixtureJson.ACCUMULO_1_7);
-        stubJobFixtureGet(FixtureJson.ACCUMULO_MASTER);
-        stubJobFixtureGet(FixtureJson.ACCUMULO_PULL_REQUESTS);
-
-
-
-    }
-
-
-    @AfterClass
-    public static void stopServer() {
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        wireMockServer.stop();
-    }
-
-    @After
-    public void after() {
-        WireMock.shutdownServer();
-    }
+//    @After
+//    public void after() {
+//        WireMock.shutdownServer();
+//    }
 
     @Test
     public void jenkinsJobQueryGetTest() throws ExecutionException, InterruptedException {
         //        String jenkinsServerUrl = "https://builds.apache.org";
         //        String jobNamePattern = "Ambari.*?";
-        System.out.println(wireMockServer.listAllStubMappings());
+//        System.out.println(wireMockServer.listAllStubMappings());
 
-        String jenkinsServerUrl = "http://localhost:8080";
+        String jenkinsServerUrl = "http://builds.apache.org";
         String jobNamePattern = "Accumulo-1.7";
         JenkinsJobQuery jenkinsJobQuery = new JenkinsJobQuery(jenkinsServerUrl, jobNamePattern);
         JSONObject response = new JenkinsJobQueryCallable(jenkinsJobQuery).call();
