@@ -14,13 +14,12 @@ Installation
 ===============
 
 git clone https://github.com/ericdriggs/cicdash
-./install.sh
-
+mvn clean install
 
 Usage
 ===========
 ```
-./run.sh
+java -jar target/cicdash-0.0.1-SNAPSHOT.jar server cicdash.yml
 browse to http://localhost:8080/
 submit json payload
 ```
@@ -49,3 +48,9 @@ Payload:
 
 Response:
 ![CICDash example](cicdash-example.png)
+
+Pre-requisites:
+============
+* JDK 8
+* Maven
+
